@@ -1,5 +1,10 @@
-// src/theme/ThemeContext.tsx
-import React, {createContext, useContext, useState, ReactNode} from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from 'react';
 import {
   ThemeProvider as StyledThemeProvider,
   DefaultTheme,
@@ -20,8 +25,8 @@ const darkTheme: DefaultTheme = {
   colors: {
     background: '#121212',
     text: '#FFFFFF',
-    primary: '#81C784 ',
-    secondary: '#FFC107 ',
+    primary: '#81C784',
+    secondary: '#FFC107',
   },
 };
 
@@ -49,8 +54,11 @@ export const ThemeProvider: React.FC<{children: ReactNode}> = ({children}) => {
 
   const theme = isDarkMode ? darkTheme : lightTheme;
 
+  // Memoize the context value
+  const value = useMemo(() => ({theme, toggleTheme}), [theme]);
+
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={value}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
