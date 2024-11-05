@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {useAccess} from './contexts/AccessContext';
 import MainNavigator from './navigation/MainNavigator';
 import WelcomeScreen from './screens/WelcomeScreen';
+import {StatusBar} from 'react-native';
 
 const App: React.FC = () => {
   const {isAccessed, setAccessed} = useAccess();
@@ -10,9 +11,15 @@ const App: React.FC = () => {
   return (
     <NavigationContainer>
       {!isAccessed ? (
-        <WelcomeScreen onAccess={setAccessed} />
+        <>
+          <StatusBar hidden={true} />
+          <WelcomeScreen onAccess={setAccessed} />
+        </>
       ) : (
-        <MainNavigator />
+        <>
+          <StatusBar hidden={true} />
+          <MainNavigator />
+        </>
       )}
     </NavigationContainer>
   );
