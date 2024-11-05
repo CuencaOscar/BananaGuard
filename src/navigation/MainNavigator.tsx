@@ -4,6 +4,8 @@ import HomeScreen from '../screens/HomeScreen';
 import ImageSelectionScreen from '../screens/ImageSelectionScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useTheme} from '../contexts/ThemeContext';
+import HistoryScreen from '../screens/HistoryScreen';
+import DiseasesScreen from '../screens/DiseasesScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +22,12 @@ const MainNavigator = () => {
       case 'ImageSelection':
         iconName = 'camera';
         break;
+      case 'History':
+        iconName = 'history';
+        break;
+      case 'Disease':
+        iconName = 'stethoscope';
+        break;
       default:
         iconName = 'question-circle';
     }
@@ -34,11 +42,11 @@ const MainNavigator = () => {
         tabBarInactiveTintColor: theme.colors.tabBarInactiveTintColor,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: "#41aca6",
+          backgroundColor: '#41aca6',
         },
         tabBarLabelStyle: {
-          backgroundColor: "#41aca6",
-        }
+          backgroundColor: '#41aca6',
+        },
       })}>
       <Tab.Screen name="Home">
         {() => (
@@ -53,6 +61,16 @@ const MainNavigator = () => {
         name="ImageSelection"
         component={ImageSelectionScreen}
         options={{title: 'Select Image'}}
+      />
+      <Tab.Screen
+        name="History"
+        component={HistoryScreen}
+        options={{title: 'History'}}
+      />
+      <Tab.Screen
+        name="Disease"
+        component={DiseasesScreen}
+        options={{title: 'Disease'}}
       />
     </Tab.Navigator>
   );
