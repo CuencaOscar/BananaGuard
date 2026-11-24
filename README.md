@@ -5,6 +5,10 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 
 > *Banana Leaf Disease Detection Using Convolutional Neural Networks (CNNs) Through a Mobile App*
 
+![React Native](https://img.shields.io/badge/React_Native-0.76-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white)
+
 The goal is simple: a farmer takes a picture of a leaf and gets a fast, offline-friendly
 diagnosis, plus a history of past checks and a reference list of common diseases.
 
@@ -62,11 +66,13 @@ npm test           # Jest
 
 ## Related work
 
-- Master's in Web Applications and Services Development (VIU) — thesis on a mobile app for
-  **plant disease classification using deep learning**.
-- Master's in Software (UTMACH) — thesis on a mobile app for **Alzheimer's image
-  classification using machine learning**.
+- Master's in Web Applications and Services Development (VIU): plant disease classification with deep learning —
+  [LeafHealth-Tracker](https://github.com/CuencaOscar/LeafHealth-Tracker) (app) and
+  [PhytoAnalytic-Engine](https://github.com/CuencaOscar/PhytoAnalytic-Engine) (PyTorch API).
+- Master's in Software (UTMACH): Alzheimer's MRI classification with machine learning —
+  [NeuroImage-Insight](https://github.com/CuencaOscar/NeuroImage-Insight) (app) and
+  [NeuroEngine](https://github.com/CuencaOscar/NeuroEngine) (Keras API).
 
-## Author
+---
 
-**Oscar Cuenca** — Full Stack Developer · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
+**Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
