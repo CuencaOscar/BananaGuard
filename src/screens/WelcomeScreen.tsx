@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {useTheme} from '../contexts/ThemeContext';
 import {ImageSourcePropType} from 'react-native';
-import bananeraImage from '../assets/background/bananera2.jpg';
+import backgroundImage from '../assets/background/leaves.jpg';
 
 type WelcomeScreenProps = {
   onAccess: () => void;
@@ -13,7 +13,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({onAccess}) => {
 
   return (
     <Background
-      source={bananeraImage as ImageSourcePropType}
+      source={backgroundImage as ImageSourcePropType}
       resizeMode="cover">
       <Overlay>
         <Title>Welcome to BananaGuard!</Title>
