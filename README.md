@@ -1,79 +1,72 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BananaGuard 🍌
 
-# Getting Started
+Mobile app for detecting diseases in banana leaves from a photo, built as part of my
+**Master's thesis in Artificial Intelligence** at Universidad Internacional de Valencia (VIU):
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> *Banana Leaf Disease Detection Using Convolutional Neural Networks (CNNs) Through a Mobile App*
 
-## Step 1: Start the Metro Server
+The goal is simple: a farmer takes a picture of a leaf and gets a fast, offline-friendly
+diagnosis, plus a history of past checks and a reference list of common diseases.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Status
 
-To start Metro, run the following command from the _root_ of your React Native project:
+This repository contains the **mobile client (UI prototype)** of the project:
 
-```bash
-# using npm
-npm start
+| Area | Status |
+|---|---|
+| Welcome and home screens | ✅ Done |
+| Bottom-tab navigation | ✅ Done |
+| Light / dark theme system | ✅ Done |
+| Take a photo / pick from gallery | 🚧 UI ready, capture not wired yet |
+| CNN inference on the device | 🚧 CNN developed in the thesis, not included in this repo |
+| Diagnosis history | 🚧 Placeholder screen |
+| Disease reference list | 🚧 Placeholder screen |
 
-# OR using Yarn
-yarn start
+## Tech stack
+
+- **React Native 0.76** with **TypeScript**
+- **React Navigation** (bottom tabs)
+- **styled-components** with a typed theme (light and dark palettes)
+- React Context for app state (theme, onboarding access)
+- Quality tooling: **ESLint**, **Prettier**, **Husky** + **lint-staged**, **Jest**
+
+## Project structure
+
+```
+src/
+├── App.tsx
+├── contexts/        # ThemeContext, AccessContext
+├── navigation/      # MainNavigator (bottom tabs)
+├── screens/         # Welcome, Home, ImageSelection, Diseases, History
+└── types/           # Navigation and styled-components typings
 ```
 
-## Step 2: Start your Application
+## Getting started
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
+Requirements: Node.js 18+, and the [React Native environment](https://reactnative.dev/docs/set-up-your-environment)
+for Android and/or iOS.
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm install
+npm start          # Metro bundler
+npm run android    # or: npm run ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Useful scripts:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+npm run lint       # ESLint
+npm run format     # Prettier
+npm test           # Jest
+```
 
-## Step 3: Modifying your App
+## Related work
 
-Now that you have successfully run the app, let's modify it.
+- Master's in Web Applications and Services Development (VIU) — thesis on a mobile app for
+  **plant disease classification using deep learning**.
+- Master's in Software (UTMACH) — thesis on a mobile app for **Alzheimer's image
+  classification using machine learning**.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Author
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Oscar Cuenca** — Full Stack Developer · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
