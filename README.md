@@ -27,7 +27,7 @@ thesis research; the trained model is no longer available, so the app covers eve
 | Take a photo / pick from the gallery, with preview | ✅ Done (`react-native-image-picker`) |
 | CNN inference | ⚪ Out of scope: the trained model from the thesis is not available |
 | Disease reference list (symptoms, pathogen and management) | ✅ Done |
-| Diagnosis history | 🚧 Empty state ready; filled once inference is connected |
+| Diagnosis history | ⚪ Empty state only: entries need the inference step above |
 
 ## Tech stack
 
