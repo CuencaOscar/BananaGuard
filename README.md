@@ -75,6 +75,6 @@ npm test           # Jest
   [NeuroImage-Insight](https://github.com/CuencaOscar/NeuroImage-Insight) (app) and
   [NeuroEngine](https://github.com/CuencaOscar/NeuroEngine) (Keras API).
 
----
+## License
 
-**Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
+[MIT](LICENSE) © Oscar Cuenca · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
