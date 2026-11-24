@@ -12,7 +12,7 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 
 **[⬇ Download the Android APK](https://github.com/CuencaOscar/BananaGuard/releases/latest)** (v1.0.0, arm64 and x86_64)
 
-<p align="center"><img src="docs/screenshots.png" alt="Home, image preview, disease list and history screens on Android" width="900"></p>
+<p align="center"><img src="docs/demo.gif" alt="Welcome, home, picking a leaf photo, disease reference and history on Android" width="340"></p>
 
 The goal is simple: a farmer takes a picture of a leaf and gets a fast, offline-friendly
 diagnosis, plus a history of past checks and a reference list of common diseases.
@@ -31,6 +31,8 @@ thesis research; the trained model is no longer available, so the app covers eve
 | CNN inference | ⚪ Out of scope: the trained model from the thesis is not available |
 | Disease reference list (symptoms, pathogen and management) | ✅ Done |
 | Diagnosis history | ⚪ Empty state only: entries need the inference step above |
+
+<p align="center"><img src="docs/screenshots.png" alt="Home, image preview, disease list and history screens on Android" width="900"></p>
 
 ## Tech stack
 
