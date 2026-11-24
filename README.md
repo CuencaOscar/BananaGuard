@@ -5,7 +5,7 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 
 > *Banana Leaf Disease Detection Using Convolutional Neural Networks (CNNs) Through a Mobile App*
 
-![React Native](https://img.shields.io/badge/React_Native-0.76-61DAFB?logo=react&logoColor=black)
+![React Native](https://img.shields.io/badge/React_Native_0.76-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white)
 
