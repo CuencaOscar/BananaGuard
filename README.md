@@ -5,6 +5,7 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 
 > *Banana Leaf Disease Detection Using Convolutional Neural Networks (CNNs) Through a Mobile App*
 
+![CI](https://github.com/CuencaOscar/BananaGuard/actions/workflows/ci.yml/badge.svg)
 ![React Native](https://img.shields.io/badge/React_Native-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white)
@@ -62,9 +63,10 @@ npm run android    # or: npm run ios
 Useful scripts:
 
 ```bash
+npm run typecheck  # TypeScript
 npm run lint       # ESLint
 npm run format     # Prettier
-npm test           # Jest
+npm test           # Jest: disease data and screens
 ```
 
 ## Related work

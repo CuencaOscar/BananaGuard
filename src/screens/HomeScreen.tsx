@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useTheme } from '../contexts/ThemeContext';
+import {useTheme} from '../contexts/ThemeContext';
 
 type HomeScreenProps = {
   onClassifyImage: () => void;
@@ -14,7 +14,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
   onViewDiseases,
   onViewHistory,
 }) => {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
 
   return (
     <Container>
@@ -49,26 +49,26 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({theme}) => theme.colors.background};
   padding: 20px;
 `;
 
 const MainIcon = styled(Icon)`
   margin-bottom: 20px;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({theme}) => theme.colors.primary};
 `;
 
 const HeaderText = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({theme}) => theme.colors.text};
   margin-bottom: 10px;
   text-align: center;
 `;
 
 const IntroText = styled.Text`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({theme}) => theme.colors.secondary};
   text-align: center;
   margin-bottom: 30px;
   padding: 0 20px;
@@ -84,7 +84,7 @@ const ActionButton = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({theme}) => theme.colors.primary};
   padding: 15px 25px;
   border-radius: 20px;
   width: 85%;
@@ -94,7 +94,7 @@ const ActionButton = styled.TouchableOpacity`
 `;
 
 const ActionText = styled.Text`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({theme}) => theme.colors.text};
   font-size: 16px;
   font-weight: bold;
 `;

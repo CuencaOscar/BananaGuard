@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {useTheme} from '../contexts/ThemeContext';
 import {ImageSourcePropType} from 'react-native';
 import backgroundImage from '../assets/background/leaves.jpg';
 
@@ -9,8 +8,6 @@ type WelcomeScreenProps = {
 };
 
 const WelcomeScreen: React.FC<WelcomeScreenProps> = ({onAccess}) => {
-  const {theme, toggleTheme} = useTheme();
-
   return (
     <Background
       source={backgroundImage as ImageSourcePropType}
@@ -23,13 +20,6 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({onAccess}) => {
         <AccessButton onPress={onAccess}>
           <ButtonText>Get Started</ButtonText>
         </AccessButton>
-        {/* <ThemeToggleButton onPress={toggleTheme}>
-            <ThemeToggleText>
-              {theme.colors.background === '#FFF8E1'
-                ? 'Switch to Dark Mode'
-                : 'Switch to Light Mode'}
-            </ThemeToggleText>
-          </ThemeToggleButton> */}
       </Overlay>
     </Background>
   );
@@ -46,12 +36,6 @@ const Overlay = styled.View`
   align-items: center;
   justify-content: center;
   padding: 20px;
-`;
-
-const Logo = styled.Image`
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
 `;
 
 const Title = styled.Text`
@@ -86,19 +70,6 @@ const ButtonText = styled.Text`
   color: ${({theme}) => theme.colors.text};
   font-size: 18px;
   font-weight: bold;
-`;
-
-const ThemeToggleButton = styled.TouchableOpacity`
-  background-color: ${({theme}) => theme.colors.secondary};
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin-top: 20px;
-  opacity: 0.8;
-`;
-
-const ThemeToggleText = styled.Text`
-  color: ${({theme}) => theme.colors.text};
-  font-size: 14px;
 `;
 
 export default WelcomeScreen;
