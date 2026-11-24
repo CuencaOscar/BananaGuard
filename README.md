@@ -16,7 +16,8 @@ diagnosis, plus a history of past checks and a reference list of common diseases
 
 ## Status
 
-This repository contains the **mobile client (UI prototype)** of the project:
+This repository contains the **mobile client** of the project. The CNN was trained and evaluated as part of the
+thesis research; the trained model is no longer available, so the app covers everything up to image selection.
 
 | Area | Status |
 |---|---|
@@ -24,7 +25,7 @@ This repository contains the **mobile client (UI prototype)** of the project:
 | Bottom-tab navigation | ✅ Done |
 | Typed theme system (dark palette) | ✅ Done |
 | Take a photo / pick from the gallery, with preview | ✅ Done (`react-native-image-picker`) |
-| CNN inference on the device | 🚧 CNN developed in the thesis, not included in this repo |
+| CNN inference | ⚪ Out of scope: the trained model from the thesis is not available |
 | Disease reference list (symptoms, pathogen and management) | ✅ Done |
 | Diagnosis history | 🚧 Empty state ready; filled once inference is connected |
 
