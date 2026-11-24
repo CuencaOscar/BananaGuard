@@ -37,7 +37,7 @@ const MainNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({color, size}) => getTabBarIcon(route.name, color, 20),
+        tabBarIcon: ({color}) => getTabBarIcon(route.name, color, 20),
         tabBarActiveTintColor: theme.colors.tabBarActiveTintColor,
         tabBarInactiveTintColor: theme.colors.tabBarInactiveTintColor,
         headerShown: false,
@@ -49,11 +49,11 @@ const MainNavigator = () => {
         },
       })}>
       <Tab.Screen name="Home">
-        {() => (
+        {({navigation}) => (
           <HomeScreen
-            onClassifyImage={() => {}}
-            onViewDiseases={() => {}}
-            onViewHistory={() => {}}
+            onClassifyImage={() => navigation.navigate('ImageSelection')}
+            onViewDiseases={() => navigation.navigate('Disease')}
+            onViewHistory={() => navigation.navigate('History')}
           />
         )}
       </Tab.Screen>

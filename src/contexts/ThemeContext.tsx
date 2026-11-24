@@ -4,6 +4,7 @@ import React, {
   useState,
   ReactNode,
   useMemo,
+  useCallback,
 } from 'react';
 import {
   ThemeProvider as StyledThemeProvider,
@@ -23,9 +24,9 @@ const lightTheme: DefaultTheme = {
 
 const darkTheme: DefaultTheme = {
   colors: {
-    background: ' #0a1c22 ',
+    background: '#0a1c22',
     text: '#FFFFFF',
-    primary: '#269b86 ',
+    primary: '#269b86',
     secondary: '#FFD54F',
     tabBarActiveTintColor: '#000',
     tabBarInactiveTintColor: 'white',
@@ -47,12 +48,15 @@ export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider: React.FC<{children: ReactNode}> = ({children}) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+  const toggleTheme = useCallback(
+    () => setIsDarkMode(!isDarkMode),
+    [isDarkMode],
+  );
 
   // const theme = isDarkMode ? darkTheme : lightTheme;
   const theme = darkTheme ? darkTheme : lightTheme;
 
-  const value = useMemo(() => ({theme, toggleTheme}), [theme]);
+  const value = useMemo(() => ({theme, toggleTheme}), [theme, toggleTheme]);
 
   return (
     <ThemeContext.Provider value={value}>
