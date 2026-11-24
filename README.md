@@ -9,7 +9,7 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white)
 
-<p align="center"><img src="docs/screenshots.png" alt="Welcome, home, disease list and history screens on Android" width="900"></p>
+<p align="center"><img src="docs/screenshots.png" alt="Home, image preview, disease list and history screens on Android" width="900"></p>
 
 The goal is simple: a farmer takes a picture of a leaf and gets a fast, offline-friendly
 diagnosis, plus a history of past checks and a reference list of common diseases.
@@ -23,7 +23,7 @@ This repository contains the **mobile client (UI prototype)** of the project:
 | Welcome and home screens, with quick actions to each section | ✅ Done |
 | Bottom-tab navigation | ✅ Done |
 | Typed theme system (dark palette) | ✅ Done |
-| Take a photo / pick from gallery | 🚧 UI ready, capture not wired yet |
+| Take a photo / pick from the gallery, with preview | ✅ Done (`react-native-image-picker`) |
 | CNN inference on the device | 🚧 CNN developed in the thesis, not included in this repo |
 | Disease reference list (symptoms, pathogen and management) | ✅ Done |
 | Diagnosis history | 🚧 Empty state ready; filled once inference is connected |
@@ -31,7 +31,7 @@ This repository contains the **mobile client (UI prototype)** of the project:
 ## Tech stack
 
 - **React Native 0.76** with **TypeScript**
-- **React Navigation** (bottom tabs)
+- **React Navigation** (bottom tabs) and **react-native-image-picker** (camera and gallery)
 - **styled-components** with a typed theme (light and dark palettes)
 - React Context for app state (theme, onboarding access)
 - Quality tooling: **ESLint**, **Prettier**, **Husky** + **lint-staged**, **Jest**
