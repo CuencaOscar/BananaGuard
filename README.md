@@ -32,8 +32,6 @@ thesis research; the trained model is no longer available, so the app covers eve
 | Disease reference list (symptoms, pathogen and management) | ✅ Done |
 | Diagnosis history | ⚪ Empty state only: entries need the inference step above |
 
-<p align="center"><img src="docs/screenshots.png" alt="Home, image preview, disease list and history screens on Android" width="900"></p>
-
 ## Tech stack
 
 - **React Native 0.76** with **TypeScript**
