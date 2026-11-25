@@ -12,7 +12,9 @@ Mobile app for detecting diseases in banana leaves from a photo, built as part o
 
 **[⬇ Download the Android APK](https://github.com/CuencaOscar/BananaGuard/releases/latest)** (v1.1.0, arm64 and x86_64)
 
-<p align="center"><img src="docs/demo.gif" alt="Welcome, home, picking a leaf photo, disease reference and history on Android" width="340"></p>
+<p align="center"><img src="docs/demo-v1.1.gif" alt="Welcome, home, picking a leaf photo, disease reference and history on Android" width="340"></p>
+
+<p align="center"><img src="docs/screens-v1.1.png" alt="Welcome, home, image selection and disease guide screens" width="900"></p>
 
 The goal is simple: a farmer takes a picture of a leaf and gets a fast, offline-friendly
 diagnosis, plus a history of past checks and a reference list of common diseases.
