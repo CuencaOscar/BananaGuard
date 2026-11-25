@@ -42,10 +42,12 @@ const MainNavigator = () => {
         tabBarInactiveTintColor: theme.colors.tabBarInactiveTintColor,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#41aca6',
+          backgroundColor: theme.colors.surface,
+          borderTopColor: theme.colors.border,
         },
         tabBarLabelStyle: {
-          backgroundColor: '#41aca6',
+          fontSize: 11,
+          fontWeight: '600',
         },
       })}>
       <Tab.Screen name="Home">

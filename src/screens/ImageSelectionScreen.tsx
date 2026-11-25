@@ -7,6 +7,7 @@ import {
   launchCamera,
   launchImageLibrary,
 } from 'react-native-image-picker';
+import {StyleSheet} from 'react-native';
 import {useTheme} from '../contexts/ThemeContext';
 
 const PICKER_OPTIONS = {mediaType: 'photo', quality: 0.8} as const;
@@ -39,15 +40,21 @@ const ImageSelectionScreen: React.FC = () => {
     return (
       <Container>
         <Title>Leaf to analyse</Title>
-        <Preview source={{uri: image.uri}} resizeMode="cover" />
-        <Note>
-          Diagnosis needs the CNN model trained in the thesis, which is not
-          bundled in this repository yet.
-        </Note>
-        <DisabledButton disabled>
-          <ButtonText>Analyse leaf</ButtonText>
-          <Icon name="search" size={20} color={theme.colors.text} />
-        </DisabledButton>
+        <Subtitle>Check that the leaf fills most of the photo.</Subtitle>
+        <PreviewCard>
+          <Preview source={{uri: image.uri}} resizeMode="cover" />
+        </PreviewCard>
+        <InfoBox>
+          <Icon name="info-circle" size={16} color={theme.colors.secondary} />
+          <Note>
+            Diagnosis needs the CNN model trained in the thesis, which is not
+            bundled in this repository yet.
+          </Note>
+        </InfoBox>
+        <PrimaryButton disabled style={styles.disabled}>
+          <Icon name="search" size={16} color={theme.colors.primaryText} />
+          <PrimaryText>Analyse leaf</PrimaryText>
+        </PrimaryButton>
         <SecondaryButton onPress={() => setImage(null)}>
           <SecondaryText>Choose another image</SecondaryText>
         </SecondaryButton>
@@ -60,101 +67,167 @@ const ImageSelectionScreen: React.FC = () => {
       <Title>Select an Image</Title>
       <Subtitle>Choose an option to start analyzing your banana leaf</Subtitle>
 
-      <ButtonContainer>
-        <ActionButton onPress={openCamera}>
-          <ButtonText>Take a Photo</ButtonText>
-          <Icon name="camera" size={20} color={theme.colors.text} />
-        </ActionButton>
+      <Option onPress={openCamera} accessibilityRole="button">
+        <OptionIcon>
+          <Icon name="camera" size={20} color={theme.colors.primary} />
+        </OptionIcon>
+        <OptionBody>
+          <OptionTitle>Take a Photo</OptionTitle>
+          <OptionText>Use the camera in good, natural light.</OptionText>
+        </OptionBody>
+        <Icon name="chevron-right" size={14} color={theme.colors.muted} />
+      </Option>
 
-        <ActionButton onPress={openGallery}>
-          <ButtonText>Select from Gallery</ButtonText>
-          <Icon name="image" size={20} color={theme.colors.text} />
-        </ActionButton>
-      </ButtonContainer>
+      <Option onPress={openGallery} accessibilityRole="button">
+        <OptionIcon>
+          <Icon name="image" size={20} color={theme.colors.primary} />
+        </OptionIcon>
+        <OptionBody>
+          <OptionTitle>Select from Gallery</OptionTitle>
+          <OptionText>Pick a leaf photo you already have.</OptionText>
+        </OptionBody>
+        <Icon name="chevron-right" size={14} color={theme.colors.muted} />
+      </Option>
+
+      <Tips>
+        <TipsTitle>Tips for a good photo</TipsTitle>
+        <Tip>• One leaf per photo, upper side facing the camera</Tip>
+        <Tip>• Avoid strong shadows and blurry images</Tip>
+      </Tips>
       {error ? <ErrorText>{error}</ErrorText> : null}
     </Container>
   );
 };
 
-// Styled components
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
-  align-items: center;
   background-color: ${({theme}) => theme.colors.background};
-  padding: 20px;
+  padding: 28px 20px 20px;
 `;
 
 const Title = styled.Text`
   font-size: 26px;
   font-weight: bold;
   color: ${({theme}) => theme.colors.text};
-  margin-bottom: 5px;
 `;
 
 const Subtitle = styled.Text`
-  font-size: 16px;
-  color: ${({theme}) => theme.colors.secondary};
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 0 10px;
+  font-size: 14px;
+  color: ${({theme}) => theme.colors.muted};
+  margin: 6px 0 24px;
 `;
 
-const ButtonContainer = styled.View`
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const ActionButton = styled.TouchableOpacity`
-  width: 80%;
+const Option = styled.TouchableOpacity`
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  background-color: ${({theme}) => theme.colors.primary};
-  padding: 15px;
-  border-radius: 12px;
-  margin: 10px 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  elevation: 5;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: ${({theme}) => theme.colors.border};
+  background-color: ${({theme}) => theme.colors.surface};
 `;
 
-const DisabledButton = styled(ActionButton)`
-  opacity: 0.5;
+const OptionIcon = styled.View`
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  background-color: ${({theme}) => theme.colors.surfaceAlt};
 `;
 
-const ButtonText = styled.Text`
-  color: ${({theme}) => theme.colors.text};
+const OptionBody = styled.View`
+  flex: 1;
+`;
+
+const OptionTitle = styled.Text`
   font-size: 16px;
   font-weight: bold;
+  color: ${({theme}) => theme.colors.text};
+`;
+
+const OptionText = styled.Text`
+  font-size: 13px;
+  margin-top: 2px;
+  color: ${({theme}) => theme.colors.muted};
+`;
+
+const Tips = styled.View`
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 20px;
+  background-color: rgba(255, 213, 79, 0.08);
+`;
+
+const TipsTitle = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: ${({theme}) => theme.colors.secondary};
+`;
+
+const Tip = styled.Text`
+  font-size: 13px;
+  line-height: 20px;
+  color: ${({theme}) => theme.colors.muted};
+`;
+
+const PreviewCard = styled.View`
+  padding: 8px;
+  border-radius: 28px;
+  background-color: ${({theme}) => theme.colors.surface};
 `;
 
 const Preview = styled.Image`
-  width: 80%;
-  aspect-ratio: 1;
-  border-radius: 16px;
+  width: 100%;
+  aspect-ratio: 1.2;
+  border-radius: 22px;
+`;
+
+const InfoBox = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
   margin: 16px 0;
+  padding: 14px;
+  border-radius: 16px;
+  background-color: rgba(255, 213, 79, 0.08);
 `;
 
 const Note = styled.Text`
-  width: 80%;
+  flex: 1;
+  margin-left: 10px;
   font-size: 13px;
   line-height: 19px;
-  text-align: center;
-  color: ${({theme}) => theme.colors.secondary};
-  margin-bottom: 6px;
+  color: ${({theme}) => theme.colors.muted};
+`;
+
+const PrimaryButton = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 16px;
+  background-color: ${({theme}) => theme.colors.primary};
+`;
+
+const PrimaryText = styled.Text`
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: ${({theme}) => theme.colors.primaryText};
 `;
 
 const SecondaryButton = styled.TouchableOpacity`
-  padding: 10px;
+  align-items: center;
+  padding: 14px;
 `;
 
 const SecondaryText = styled.Text`
-  color: ${({theme}) => theme.colors.text};
+  color: ${({theme}) => theme.colors.primary};
   font-size: 15px;
-  text-decoration-line: underline;
+  font-weight: bold;
 `;
 
 const ErrorText = styled.Text`
@@ -162,5 +235,9 @@ const ErrorText = styled.Text`
   font-size: 14px;
   margin-top: 12px;
 `;
+
+const styles = StyleSheet.create({
+  disabled: {opacity: 0.45},
+});
 
 export default ImageSelectionScreen;

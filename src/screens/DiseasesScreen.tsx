@@ -1,20 +1,22 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {ScrollView} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {Disease, DiseaseType, diseases} from '../data/diseases';
 
 const typeColors: Record<DiseaseType, string> = {
-  Fungal: '#269b86',
-  Bacterial: '#d9822b',
-  Viral: '#8e6bd8',
+  Fungal: '#34c48b',
+  Bacterial: '#f59e0b',
+  Viral: '#a78bfa',
 };
 
 const DiseaseCard: React.FC<{disease: Disease}> = ({disease}) => (
-  <Card>
+  <Card style={{borderLeftColor: typeColors[disease.type]}}>
     <CardHeader>
       <Name>{disease.name}</Name>
-      <Badge style={{backgroundColor: typeColors[disease.type]}}>
-        <BadgeText>{disease.type}</BadgeText>
+      <Badge style={{backgroundColor: `${typeColors[disease.type]}26`}}>
+        <BadgeText style={{color: typeColors[disease.type]}}>
+          {disease.type}
+        </BadgeText>
       </Badge>
     </CardHeader>
     <Pathogen>{disease.pathogen}</Pathogen>
@@ -32,7 +34,9 @@ const DiseasesScreen: React.FC = () => {
       <Subtitle>
         Common diseases of banana plants and how to recognise them.
       </Subtitle>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.list}>
         {diseases.map(disease => (
           <DiseaseCard key={disease.name} disease={disease} />
         ))}
@@ -44,26 +48,29 @@ const DiseasesScreen: React.FC = () => {
 const Container = styled.View`
   flex: 1;
   background-color: ${({theme}) => theme.colors.background};
-  padding: 20px 20px 0;
+  padding: 28px 20px 0;
 `;
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: ${({theme}) => theme.colors.text};
 `;
 
 const Subtitle = styled.Text`
   font-size: 14px;
-  color: ${({theme}) => theme.colors.secondary};
-  margin: 6px 0 16px;
+  color: ${({theme}) => theme.colors.muted};
+  margin: 6px 0 18px;
 `;
 
 const Card = styled.View`
-  background-color: rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  background-color: ${({theme}) => theme.colors.surface};
+  border-width: 1px;
+  border-left-width: 4px;
+  border-color: ${({theme}) => theme.colors.border};
+  border-radius: 18px;
   padding: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 `;
 
 const CardHeader = styled.View`
@@ -86,7 +93,6 @@ const Badge = styled.View`
 `;
 
 const BadgeText = styled.Text`
-  color: #ffffff;
   font-size: 12px;
   font-weight: bold;
 `;
@@ -94,7 +100,7 @@ const BadgeText = styled.Text`
 const Pathogen = styled.Text`
   font-style: italic;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${({theme}) => theme.colors.muted};
   margin: 4px 0 10px;
 `;
 
@@ -113,5 +119,9 @@ const Body = styled.Text`
   color: ${({theme}) => theme.colors.text};
   margin-top: 2px;
 `;
+
+const styles = StyleSheet.create({
+  list: {paddingBottom: 20},
+});
 
 export default DiseasesScreen;
